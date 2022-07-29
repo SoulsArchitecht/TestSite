@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Manager</title>
+</head>
+<body>
+<div align="center" style="background-color: antiquewhite; min-width: 1366px; min-height: 768px;
+     align-content: center; position: relative; margin: 0 auto;">
+
+<!--    <br> <br>
+    <form action="#" th:action="@{/auth/logout}"  method="post">
+        <input class="close-btn" type="submit" value="Application Logout" style="background-color: lightgreen;
+             width: 150px; height: 30px; border: solid 4px rgba(0, 0, 0, 0.23); cursor: pointer; border-radius: 10px">
+    </form>
+    <br>-->
+
+    <h1>User Manager</h1>
+
+    <form th:action= "@{/search}" method="get" > <!-- вместо action="search" -->
+        <input type="text" name="keyword" placeholder="keyword" />
+        <input type="submit" value="Search" style="cursor: pointer; background-color: lightgreen; border-radius: 3px"/>
+    </form>
+
+    <br><br>
+
+    <a href="new"> <h2>Create New User</h2></a>
+    <br><br>
+    <table border="2" cellpadding="12" bgcolor="#add8e6">
+        <thead>
+        <tr bgcolor="#deb887">
+            <th>ID</th>
+            <th>Login</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>FirstName</th>
+            <th>MiddleName</th>
+            <th>LastName</th>
+            <th>Phone</th>
+            <th>Place</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+        <tbody style="padding-bottom: 50px">
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.id}">ID</td>
+            <td th:text="${user.login}">Login</td>
+            <td th:text="${user.email}">Email</td>
+            <td th:text="${user.password}">Password</td>
+            <td th:text="${user.firstName}">FirstName</td>
+            <td th:text="${user.middleName}">MiddleName</td>
+            <td th:text="${user.lastName}">LastName</td>
+            <td th:text="${user.phone}">Phone</td>
+            <td th:text="${user.getPlace()}">Place</td>
+            <td th:text="${user.active}">IsActive</td>
+            <td>
+                <a th:href="@{'/edit/' + ${user.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${user.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+
+    </table>
+    <br><br>
+</div>
+
+
+</body>
+</html>
