@@ -32,7 +32,7 @@
     <table border="2" cellpadding="12" bgcolor="#add8e6">
         <thead>
         <tr bgcolor="#deb887">
-            <th>ID</th>
+<!--            <th>ID</th>-->
             <th>Login</th>
             <th>Email</th>
             <th>Password</th>
@@ -40,27 +40,29 @@
             <th>MiddleName</th>
             <th>LastName</th>
             <th>Phone</th>
-            <th>Place</th>
+            <th>City</th>
+            <th>Country</th>
             <th>Status</th>
         </tr>
         </thead>
 
         <tbody style="padding-bottom: 50px">
-        <tr th:each="user : ${userList}">
-            <td th:text="${user.id}">ID</td>
-            <td th:text="${user.login}">Login</td>
-            <td th:text="${user.email}">Email</td>
-            <td th:text="${user.password}">Password</td>
-            <td th:text="${user.firstName}">FirstName</td>
-            <td th:text="${user.middleName}">MiddleName</td>
-            <td th:text="${user.lastName}">LastName</td>
-            <td th:text="${user.phone}">Phone</td>
-            <td th:text="${user.getPlace()}">Place</td>
-            <td th:text="${user.active}">IsActive</td>
+        <tr th:each="userModel : ${userList}">
+<!--            <td th:text="${userModel.id}">ID</td>-->
+            <td th:text="${userModel.login}">Login</td>
+            <td th:text="${userModel.email}">Email</td>
+            <td th:text="${userModel.password}">Password</td>
+            <td th:text="${userModel.firstName}">FirstName</td>
+            <td th:text="${userModel.middleName}">MiddleName</td>
+            <td th:text="${userModel.lastName}">LastName</td>
+            <td th:text="${userModel.phone}">Phone</td>
+            <td th:text="${userModel.place.getCity()}">City</td>
+            <td th:text="${userModel.place.getCountry()}">Country</td>
+            <td th:text="${userModel.active}">IsActive</td>
             <td>
-                <a th:href="@{'/edit/' + ${user.id}}">Edit</a>
+                <a th:href="@{'/edit/' + ${userModel.login}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${user.id}}">Delete</a>
+                <a th:href="@{'/delete/' + ${userModel.login}}">Delete</a>
             </td>
         </tr>
         </tbody>

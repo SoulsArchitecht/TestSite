@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit User</title>
+</head>
+<body>
+<div align="center" style="background-color: antiquewhite; min-width: 1366px; min-height: 768px; align-content: center;
+     position: relative; margin: 0 auto;">
+    <br> <br>
+    <form action="#" th:action="@{/auth/logout}"  method="post">
+        <input class="close-btn" type="submit" value="Application Logout" style="background-color: lightgreen;
+             width: 150px; height: 30px; border: solid 4px rgba(0, 0, 0, 0.23); cursor: pointer; border-radius: 10px">
+    </form>
+
+    <br><br>
+    <h1>Edit URLInfo</h1>
+    <br>
+    <form action="#" th:action="@{/save}" th:object="${user}" method="post">
+        <table border="1" cellpadding="12">
+
+            <tr>
+                <td>ID:</td>
+                <td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+            </tr>
+
+            <tr>
+                <td>LOGIN:</td>
+                <td><input type="text" th:field="*{login}" /></td>
+            </tr>
+
+            <tr>
+                <td>EMAIL:</td>
+                <td><input type="text" th:field="*{email}" /></td>
+            </tr>
+
+            <tr>
+                <td>PASSWORD:</td>
+                <td><input type="text" th:field="*{password}" /></td>
+            </tr>
+
+            <tr>
+                <td>FIRSTNAME:</td>
+                <td><input type="text" th:field="*{firstName}" /></td>
+            </tr>
+
+            <tr>
+                <td>MIDDLENAME:</td>
+                <td><input type="text" th:field="*{middleName}" /></td>
+            <tr>
+
+            <tr>
+                <td>LASTNAME:</td>
+                <td><input type="text" th:field="*{lastName}" /></td>
+            <tr>
+
+            <tr>
+                <td>PHONE:</td>
+                <td><input type="text" th:field="*{phone}" /></td>
+            <tr>
+
+            <tr>
+                <td>CITY:</td>
+                <td><input type="text" th:field="*{place.getCity()}" /></td>
+            <tr>
+
+            <tr>
+                <td>COUNTRY:</td>
+                <td><input type="text" th:field="*{place.getCountry()}" /></td>
+            <tr>
+
+            <tr>
+                <td>STATUS:</td>
+                <td><input type="text" th:field="*{active}" /></td>
+            <tr>
+
+                <br>
+                <td colspan="2" ><button type="submit" class="save-btn" style="cursor: pointer; background-color: lightgreen; border-radius: 3px">Save</button></td>
+            </tr>
+
+        </table>
+    </form>
+
+    <br> <br>
+    <form action="#" th:action="@{/}"  method="post" >
+        <input class="cancel-btn" type="submit" value="Cancel" style="cursor: pointer; background-color: lightgreen; border-radius: 3px">
+    </form>
+</div>
+</body>
+</html>

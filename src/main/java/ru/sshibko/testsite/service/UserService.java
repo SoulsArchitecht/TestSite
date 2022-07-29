@@ -20,6 +20,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public void deleteByLogin (String login) {
+        userRepository.deleteUserByLogin(login);
+    }
+
     public User getByLogin(String login) {
         User user = null;
         if (login != null && !login.trim().isEmpty()) {

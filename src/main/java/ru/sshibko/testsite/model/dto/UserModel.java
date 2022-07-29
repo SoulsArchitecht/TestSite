@@ -1,13 +1,19 @@
 package ru.sshibko.testsite.model.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.beans.BeanUtils;
 import ru.sshibko.testsite.model.entity.User;
 
 import java.io.Serializable;
 
+@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+@ToString
 public class UserModel implements Serializable {
-
-    private Long id;
 
     private String login;
 
@@ -23,7 +29,7 @@ public class UserModel implements Serializable {
 
     private String phone;
 
-    private PlaceModel place;
+    private String place;
 
     private Boolean active;
 
