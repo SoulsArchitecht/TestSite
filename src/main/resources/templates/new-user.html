@@ -1,25 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit User</title>
+    <title>Create new User</title>
 </head>
 <body>
 <div align="center" style="background-color: antiquewhite; min-width: 1366px; min-height: 768px; align-content: center;
      position: relative; margin: 0 auto;">
-    <br> <br>
-    <form action="#" th:action="@{/auth/logout}"  method="post">
-        <input class="close-btn" type="submit" value="Application Logout" style="background-color: lightgreen;
-             width: 150px; height: 30px; border: solid 4px rgba(0, 0, 0, 0.23); cursor: pointer; border-radius: 10px">
-    </form>
+
+<!--    <br> <br>-->
+<!--    <form action="#" th:action="@{/auth/logout}"  method="post">-->
+<!--        <input class="close-btn" type="submit" value="Application Logout" style="background-color: lightgreen;-->
+<!--             width: 150px; height: 30px; border: solid 4px rgba(0, 0, 0, 0.23); cursor: pointer; border-radius: 10px">-->
+<!--    </form>-->
 
     <br><br>
-    <h1>Edit URLInfo</h1>
+    <h1>Create New User</h1>
     <br>
-    <form action="#" th:action="@{api/user/edit/{login}}" th:object="${user}" method="post">
+    <form action="#" th:action="@{api/user/save}" th:object="${user}" method="post">
         <table border="1" cellpadding="12">
 
             <tr>
@@ -50,24 +51,30 @@
             <tr>
                 <td>MIDDLENAME:</td>
                 <td><input type="text" th:field="*{middleName}" /></td>
-            <tr>
+            </tr>
 
             <tr>
                 <td>LASTNAME:</td>
                 <td><input type="text" th:field="*{lastName}" /></td>
-            <tr>
+            </tr>
 
             <tr>
                 <td>PHONE:</td>
                 <td><input type="text" th:field="*{phone}" /></td>
-            <tr>
+            </tr>
 
+<!--            <tr>-->
+<!--                <td>STATUS:</td>-->
+<!--                <td><input type="text" th:field="*{active}" /></td>-->
+<!--            <tr>-->
             <tr>
                 <td>STATUS:</td>
-                <td><input type="text" th:field="*{active}" /></td>
-            <tr>
-
+                <td> ACTIVE
+                    <input type="checkbox" name="active" th:checked="${user.active}" />
+                </td>
+            </tr>
                 <br>
+            <tr>
                 <td colspan="2" ><button type="submit" class="save-btn" style="cursor: pointer; background-color: lightgreen; border-radius: 3px">Save</button></td>
             </tr>
 
@@ -82,7 +89,7 @@
             <tr>
 
             <tr>
-                <td>COUNTRY:</td>
+                <td>REGION:</td>
                 <td><input type="text" th:field="*{region}" /></td>
             <tr>
 
@@ -91,12 +98,11 @@
                 <td><input type="text" th:field="*{country}" /></td>
             <tr>
 
-            <br>
-            <td colspan="2" ><button type="submit" class="save-btn" style="cursor: pointer; background-color: lightgreen; border-radius: 3px">Save</button></td>
+                <br>
+                <td colspan="2" ><button type="submit" class="save-btn" style="cursor: pointer; background-color: lightgreen; border-radius: 3px">Save</button></td>
 
         </table>
     </form>
-
 
     <br> <br>
     <form action="#" th:action="@{/}"  method="post" >

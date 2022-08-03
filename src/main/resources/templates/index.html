@@ -27,7 +27,9 @@
 
     <br><br>
 
-    <a href="new"> <h2>Create New User</h2></a>
+    <a href="/api/user/new"> <h2>Create New User</h2></a>
+    <br><br>
+    <a href="/api/place/new"> <h2>Create New Place</h2></a>
     <br><br>
     <table border="2" cellpadding="12" bgcolor="#add8e6">
         <thead>
@@ -60,9 +62,9 @@
             <td th:text="${userModel.place.getCountry()}">Country</td>
             <td th:text="${userModel.active}">IsActive</td>
             <td>
-                <a th:href="@{'/edit/' + ${userModel.login}}">Edit</a>
+                <a th:href="@{'api/user/edit/' + ${userModel.login}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${userModel.login}}">Delete</a>
+                <a th:href="@{'api/user/delete/' + ${userModel.login}}">Delete</a>
             </td>
         </tr>
         </tbody>
