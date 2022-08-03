@@ -54,7 +54,7 @@ public class UserService {
         if (id == null)
             return null;
         Optional<User> user = userRepository.findById(id);
-        return user.isPresent() ? user.get() : null;
+        return user.orElse(null);
     }
 
     @Transactional

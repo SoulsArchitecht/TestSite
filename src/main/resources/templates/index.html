@@ -42,13 +42,18 @@
             <th>MiddleName</th>
             <th>LastName</th>
             <th>Phone</th>
+            <th>Status</th>
+            <th>Action</th>
             <th>City</th>
             <th>Country</th>
-            <th>Status</th>
+
         </tr>
         </thead>
 
         <tbody style="padding-bottom: 50px">
+        <tr th:if="${userList.empty}">
+            <td colspan="2"> No Users Available </td>
+        </tr>
         <tr th:each="userModel : ${userList}">
 <!--            <td th:text="${userModel.id}">ID</td>-->
             <td th:text="${userModel.login}">Login</td>
@@ -58,9 +63,29 @@
             <td th:text="${userModel.middleName}">MiddleName</td>
             <td th:text="${userModel.lastName}">LastName</td>
             <td th:text="${userModel.phone}">Phone</td>
-            <td th:text="${userModel.place.getCity()}">City</td>
-            <td th:text="${userModel.place.getCountry()}">Country</td>
-            <td th:text="${userModel.active}">IsActive</td>
+            <td th:text="${userModel.active}">Active</td>
+            <td th:text="${userModel.place.city}"> City</td>
+            <td th:text="${userModel.place.region}"> Region</td>
+            <td th:text="${userModel.place.country}"> Country</td>
+
+<!--            <div class="place-select" id="places">-->
+<!--                <h3>Select your Place:</h3>-->
+<!--                <div th:each="placesList : ${placeList}">-->
+<!--                    <input th:text ="${placesList.city}" value="City"/>-->
+
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <tr th:each="places : ${placeList}">-->
+
+
+<!--                <tr th:if="${place.empty}">-->
+<!--                    <td colspan="2"> No Users Available </td>-->
+
+<!--            <td th:text="${userModel.place.getCity()}">City</td>-->
+<!--            <td th:text="${userModel.place.getCountry()}">Country</td>-->
+<!--            <td th:text="${userModel.active}">IsActive</td>-->
+<!--                </tr>-->
             <td>
                 <a th:href="@{'api/user/edit/' + ${userModel.login}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;

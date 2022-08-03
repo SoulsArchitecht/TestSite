@@ -6,10 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.sshibko.testsite.model.entity.Place;
-import ru.sshibko.testsite.model.entity.User;
 import ru.sshibko.testsite.service.PlaceService;
 
-import java.util.List;
 
 @Controller
 @RequestMapping("/api/place")
@@ -22,7 +20,7 @@ public class PlaceController {
         this.placeService = placeService;
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "api/place/save", method = RequestMethod.POST)
     public String savePlace(@ModelAttribute("place") Place place) {
         placeService.savePlace(place);
 
@@ -47,7 +45,7 @@ public class PlaceController {
         return modelAndView;
     }
 
-    @RequestMapping("/delete/{city}")
+    @RequestMapping(value = "/delete/{city}", method = RequestMethod.DELETE)
     public String deletePlace(@PathVariable(name = "city") String city) {
         placeService.deleteByCity(city);
 

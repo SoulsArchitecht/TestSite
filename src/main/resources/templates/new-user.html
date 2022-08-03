@@ -73,6 +73,31 @@
                     <input type="checkbox" name="active" th:checked="${user.active}" />
                 </td>
             </tr>
+
+            <a th:href="@{'api/place/new/' + ${user.getPlace()}}">Edit Place</a>
+<!--            <a th:href="new-place">Create new Place</a>-->
+
+<!--            <tr>
+                <td>CITY:</td>
+                <td>
+                    <input type="text" th:value="*{place.setCity()}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>REGION:</td>
+                <td>
+                    <input type="text" th:value="*{place.setRegion()}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>COUNTRY:</td>
+                <td>
+                    <input type="text" th:value="*{place.setCountry()}"/>
+                </td>
+            </tr>-->
+
                 <br>
             <tr>
                 <td colspan="2" ><button type="submit" class="save-btn" style="cursor: pointer; background-color: lightgreen; border-radius: 3px">Save</button></td>
@@ -81,7 +106,7 @@
         </table>
     </form>
 
-    <form action="#" th:action="@{api/place/save}" th:object="${user.place}" method="post">
+<!--    <form action="#" th:action="@{api/place/save}" th:object="${user.place}" method="post">
         <table border="1" cellpadding="12">
             <tr>
                 <td>CITY:</td>
@@ -102,7 +127,7 @@
                 <td colspan="2" ><button type="submit" class="save-btn" style="cursor: pointer; background-color: lightgreen; border-radius: 3px">Save</button></td>
 
         </table>
-    </form>
+    </form>-->
 
     <br> <br>
     <form action="#" th:action="@{/}"  method="post" >

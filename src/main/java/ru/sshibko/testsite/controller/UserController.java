@@ -30,7 +30,7 @@ public class UserController {
         return "new-user";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "api/user/save", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("user") User user) {
         userService.save(user);
 

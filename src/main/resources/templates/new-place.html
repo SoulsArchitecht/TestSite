@@ -21,24 +21,36 @@
     <h1>Create New Place</h1>
     <br>
 
-    <form action="#" th:action="@{api/place/save}" th:object="${place}" method="post">
+    <form th:action="@{api/place/save}" th:object="${place}" method="post">
         <table border="1" cellpadding="12">
             <tr>
                 <td>CITY:</td>
-                <td><input type="text" th:field="*{city}" /></td>
+                <td>
+                    <label>
+                        <input type="text" th:field="*{city}" />
+                    </label>
+                </td>
             </tr>
 
             <tr>
                 <td>REGION:</td>
-                <td><input type="text" th:field="*{region}" /></td>
+                <td>
+                    <label>
+                        <input type="text" th:field="*{region}" />
+                    </label>
+                </td>
             </tr>
 
             <tr>
                 <td>COUNTRY:</td>
-                <td><input type="text" th:field="*{country}" /></td>
+                <td>
+                    <label>
+                        <input type="text" th:field="*{country}" />
+                    </label>
+                </td>
             </tr>
-
-                <br>
+            <br>
+            <tr>
                 <td colspan="2" ><input type="submit" class="save-btn" value="Save" style="cursor: pointer; background-color: lightgreen; border-radius: 3px" /></td>
             </tr>
 

@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class DefaultController {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public DefaultController(UserService userService) {
@@ -24,10 +24,11 @@ public class DefaultController {
     public String viewHomePage(Model model) {
         List<User> userList =  userService.userList();
         model.addAttribute("userList", userList);
-        if(userList != null) {
+/*        if(userList != null) {
             return "index";
         }
-        return "error";
+        return "error";*/
+        return "index";
 
     }
 }
