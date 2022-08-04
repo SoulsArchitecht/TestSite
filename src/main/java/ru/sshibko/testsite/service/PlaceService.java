@@ -42,6 +42,14 @@ public class PlaceService {
         return place.orElse(null);
     }
 
+    public Place getPlaceById(Long id) {
+        if (id == null) {
+            return null;
+        }
+        Optional<Place> place =placeRepository.findById(id);
+        return place.orElse(null);
+    }
+
     public void deleteByCity (String city) {
         if (city != null) {
             placeRepository.deletePlaceByCity(city);

@@ -64,9 +64,10 @@
             <td th:text="${userModel.lastName}">LastName</td>
             <td th:text="${userModel.phone}">Phone</td>
             <td th:text="${userModel.active}">Active</td>
-            <td th:text="${userModel.place.city}"> City</td>
+<!--            <td th:text="${userModel.place.city}"> City</td>
             <td th:text="${userModel.place.region}"> Region</td>
-            <td th:text="${userModel.place.country}"> Country</td>
+            <td th:text="${userModel.place.country}"> Country</td>-->
+            <td th:text="${userModel.getPlace()}"> Place </td>
 
 <!--            <div class="place-select" id="places">-->
 <!--                <h3>Select your Place:</h3>-->

@@ -61,6 +61,42 @@
     <form action="#" th:action="@{/}"  method="post" >
         <input class="cancel-btn" type="submit" value="Cancel" style="cursor: pointer; background-color: lightgreen; border-radius: 3px">
     </form>
+
+</div>
+
+<!--<div>
+
+    <br><br>
+    <table border="2" cellpadding="12" bgcolor="#add8e6">
+        <thead>
+        <tr bgcolor="#deb887">
+            &lt;!&ndash;            <th>ID</th>&ndash;&gt;
+            <th>City</th>
+            <th>Region</th>
+            <th>Country</th>
+        </tr>
+        </thead>
+
+        <tbody style="padding-bottom: 50px">
+&lt;!&ndash;        <tr th:if="${placeList.empty}">
+            <td colspan="2"> No Places Available </td>
+        </tr>&ndash;&gt;
+        <tr th:each="placeModel : ${placeList}">
+            &lt;!&ndash;            <td th:text="${userModel.id}">ID</td>&ndash;&gt;
+
+            <td th:text="${placeModel.city}"> City</td>
+            <td th:text="${placeModel.region}"> Region</td>
+            <td th:text="${placeModel.country}"> Country</td>&ndash;&gt;
+&lt;!&ndash;            <td th:text="${placeModel.getPlace()}"> Place </td>&ndash;&gt;
+             </tr>
+            <td>
+                <a th:href="@{'api/user/edit/' + ${placeModel.city}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'api/user/delete/' + ${placeModel.city}}">Delete</a>
+            </td>
+        </tr>-->
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

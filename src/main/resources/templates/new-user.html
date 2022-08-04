@@ -74,7 +74,32 @@
                 </td>
             </tr>
 
-            <a th:href="@{'api/place/new/' + ${user.getPlace()}}">Edit Place</a>
+            <tr>
+                <td>Attach the Place</td>
+                <td>
+                    <select th:name="placeId" multiple="multiple">
+                        <!--/*@thymesVar id="drivers" type="java.util.List<stanislav.tun.novinomad.picasso.persistance.pojos.Driver>"*/-->
+                        <option th:each="p : ${placeList}" th:value="${p.placeId}"
+                                th:text="${p.placeId+' '+p.city}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+
+<!--
+            <tr>
+                <select id = "place" th:field="*{place}">
+                    <option value="">select place</option>
+                    <option th:each="pl : ${placeList}" th:value="${pl}" th:text="${pl}"> </option>
+&lt;!&ndash;                    <option value="" th:text="#{place.city}"></option>
+                    <option th:each="p : ${placeList}" th:value="${p.city}" th:text="${p.city}"></option>&ndash;&gt;
+&lt;!&ndash;                    <option th:value="region" th:text="region"></option>&ndash;&gt;
+                </select>
+            </tr>
+-->
+
+
+<!--            <a th:href="@{'api/place/new/' + ${user.getPlace()}}">Edit Place</a>-->
 <!--            <a th:href="new-place">Create new Place</a>-->
 
 <!--            <tr>

@@ -6,7 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.sshibko.testsite.model.entity.Place;
+import ru.sshibko.testsite.model.entity.User;
 import ru.sshibko.testsite.service.PlaceService;
+
+import java.util.List;
 
 
 @Controller
@@ -18,6 +21,17 @@ public class PlaceController {
     @Autowired
     public PlaceController(PlaceService placeService) {
         this.placeService = placeService;
+    }
+
+    @RequestMapping("/")
+    public String viewPlacePage(Model model) {
+        List<Place> placeList = placeService.placeList();
+        model.addAttribute("placeList", placeList);
+/*        if(userList != null) {
+            return "index";
+        }
+        return "error";*/
+        return "new-place";
     }
 
     @RequestMapping(value = "api/place/save", method = RequestMethod.POST)

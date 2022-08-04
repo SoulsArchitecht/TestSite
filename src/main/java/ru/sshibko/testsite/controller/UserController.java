@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.sshibko.testsite.model.entity.User;
+import ru.sshibko.testsite.service.PlaceService;
 import ru.sshibko.testsite.service.UserService;
 
 import java.util.List;
@@ -16,11 +17,35 @@ public class UserController {
 
     private final UserService userService;
 
+    private final PlaceService placeService;
+
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PlaceService placeService) {
         this.userService = userService;
+        this.placeService = placeService;
     }
 
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String addTourAction(@ModelAttribute("user") User user,
+                                @RequestParam(required = false, name = "placeId") List<Long> placeId,
+                                Model model) {
+
+        if(placeId.size() > 0){
+            System.out.println("DriverS more than 1");
+            for(Long id : placeId){
+                System.out.println("Driver id in addTourAction param = "+ id);
+                var place = placeService.getPlaceById(id);
+
+                //user.addPlace(place);
+            }
+        }else{
+            System.out.println("PLACE ID IS EMPTY!");
+        }
+
+        userService.save(user);
+        model.addAttribute("user", user);
+        return "redirect:/";
+    }
 
     @RequestMapping("/new")
     public String showNewUserForm(Model model) {
